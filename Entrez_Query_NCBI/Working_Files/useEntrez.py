@@ -4,8 +4,8 @@ from Bio import Entrez
 
 Entrez.email = "sdsmith@iastate.edu"
 
-# File = '/Users/schuyler/Dropbox/Testing_Scripts/test.in'
-# Taxo = 'genus'
+# File = '/Users/schuyler/Dropbox/Testing_Scripts/Reads_w_Clusters.list'
+# Taxo = 'species'
 
 File = sys.argv[1]
 Output = open(sys.argv[3], 'a+')
@@ -33,24 +33,24 @@ def pullOrganism(ID, Level):
         if flag1 == True:
             if flag2 == True:
                 return line.strip().split("; ")[int(Level)].strip(';')
-            if len(line.strip().split("; ")) == 5:
+            if len(line.strip().split("; ")) == 5 and Level == 4:
                 return line.strip().split("; ")[int(Level)].strip(';')
-            elif len(line.strip().split("; ")) == 4:
+            elif Level == 4:
                 flag2 = True
                 Level += -4
                 continue
+            return line.strip().split("; ")[int(Level)].strip(';')
         if "ORGANISM" in line:
             if "uncultured" in line:
                 return "uncultured bacterium"
             if "Plasmid" in line:
                 return "Plasmid"
-            flag1 = True
             if Level == 6 or Level == 5:
                 return line.split(" ")[Level-1]
+            flag1 = True
 
-
-# #Generate an array of the unique PubMed codes for the genes 
-# #This cuts down on the number of querries sent to NCBI by not sending duplicate requests
+# Generate an array of the unique PubMed codes for the genes 
+# This cuts down on the number of querries sent to NCBI by not sending duplicate requests
 l_id = []
 for line in open(File):
     dat = line.split('\t')[1]
@@ -63,7 +63,7 @@ for line in open(File):
 
 codes = np.unique(l_id)
 
-# #Generate a list of the corresponding organism names
+# Generate a list of the corresponding organism names
 org_list = []    
 for ind in codes:
     try:
@@ -71,13 +71,12 @@ for ind in codes:
     except:
     	org = "NOT_FOUND - " + ind
     org_list.append(org)
-
-    
-# # #Replace codes in l_id for each read with corresponding organism name
+  
+# Replace codes in l_id for each read with corresponding organism name
 for i in range(len(codes)):
 	l_id = [w.replace(codes[i], org_list[i]) for w in l_id]
 
-# # #Writes array to file
+# Writes array to file
 for item in l_id:
     Output.write("%s\n" % item)
 
