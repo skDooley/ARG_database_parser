@@ -9,6 +9,6 @@ Taxo=${@:(-2):1}
 
 cat $Input > $Output.tmp
 
-python $the_path/Working_files/useEntrez.py $Output.tmp $Taxo $Output
+python $the_path/Working_Files/useEntrez.py $Output.tmp $Taxo $Output
 
 rm $Output.tmp
