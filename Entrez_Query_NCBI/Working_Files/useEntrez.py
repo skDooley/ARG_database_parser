@@ -31,6 +31,8 @@ def pullOrganism(ID, Level):
     flag2 = False
     for line in retdata:
         if flag1 == True:
+            if "unclassified phages" in line:
+                return "unclassified phages"
             if flag2 == True:
                 return line.strip().split("; ")[int(Level)].strip(';')
             if len(line.strip().split("; ")) == 5 and Level == 4:
