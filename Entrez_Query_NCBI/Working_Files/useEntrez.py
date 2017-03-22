@@ -4,12 +4,12 @@ from Bio import Entrez
 
 Entrez.email = "sdsmith@iastate.edu"
 
-File = '/Users/schuyler/Dropbox/Testing_Scripts/Reads_w_Clusters.list.uniq'
-Taxo = 'phylum'
+# File = '/Users/schuyler/Dropbox/Testing_Scripts/Reads_w_Clusters.list.uniq'
+# Taxo = 'phylum'
 
-# File = sys.argv[1]
-# Output = open(sys.argv[3], 'a+')
-# Taxo = sys.argv[2]
+File = sys.argv[1]
+Output = open(sys.argv[3], 'a+')
+Taxo = sys.argv[2]
 
 def pullOrganism(ID, Level):
     
@@ -56,7 +56,6 @@ def pullOrganism(ID, Level):
 # This cuts down on the number of querries sent to NCBI by not sending duplicate requests
 l_id = []
 for line in open(File):
-    print line
     dat = line.split('\t')[1]
     if "|" in dat:
         dat2 = dat.split('|')[1]
@@ -80,9 +79,9 @@ for ind in codes:
 for i in range(len(codes)):
 	l_id = [w.replace(codes[i], org_list[i]) for w in l_id]
 
-# # Writes array to file
-# for item in l_id:
-#     Output.write("%s\n" % item)
+# Writes array to file
+for item in l_id:
+    Output.write("%s\n" % item)
 
 
 
