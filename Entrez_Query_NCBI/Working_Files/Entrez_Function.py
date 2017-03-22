@@ -22,7 +22,7 @@ def pullOrganism(ID, Level):
     for line in retdata:
         if flag1 == True:
             if "unclassified phages" in line:
-                return "unclassified phages"
+                return "unclassified_phages"
             if flag2 == True:
                 return line.strip().split("; ")[int(Level)].strip(';')
             if len(line.strip().split("; ")) == 5 and Level == 4:
@@ -34,11 +34,13 @@ def pullOrganism(ID, Level):
             return line.strip().split("; ")[int(Level)].strip(';')
         if "ORGANISM" in line.split()[0]:
             if "uncultured" in line:
-                return "uncultured bacterium"
+                return "uncultured_bacterium"
             if "Plasmid" in line:
                 return "Plasmid"
+            if "human gut metagenome" in line:
+                return "human_gut_metagenome"
             if Level == 6 or Level == 5:
                 return line.split(" ")[Level-1]
             flag1 = True
 
-print pullOrganism("CBR26934", "Class")
+print pullOrganism("EUY74730", "Order")

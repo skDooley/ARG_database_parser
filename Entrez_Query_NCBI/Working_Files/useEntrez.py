@@ -4,26 +4,26 @@ from Bio import Entrez
 
 Entrez.email = "sdsmith@iastate.edu"
 
-# File = '/Users/schuyler/Dropbox/Testing_Scripts/Reads_w_Clusters.list'
-# Taxo = 'class'
+File = '/Users/schuyler/Dropbox/Testing_Scripts/Reads_w_Clusters.list.uniq'
+Taxo = 'phylum'
 
-File = sys.argv[1]
-Output = open(sys.argv[3], 'a+')
-Taxo = sys.argv[2]
+# File = sys.argv[1]
+# Output = open(sys.argv[3], 'a+')
+# Taxo = sys.argv[2]
 
 def pullOrganism(ID, Level):
     
-    if Level.lower() == "phylum":
+    if Level.lower()[0] == "p":
         Level = 1
-    elif Level.lower() == "class":
+    elif Level.lower()[0] == "c":
         Level = 2
-    elif Level.lower() == "order":
+    elif Level.lower()[0] == "o":
         Level = 3
-    elif Level.lower() == "family":
+    elif Level.lower()[0] == "f":
         Level = 4
-    elif Level.lower() == "genus":
+    elif Level.lower()[0] == "g":
         Level = 5
-    elif Level.lower() == "species":
+    elif Level.lower()[0] == "s":
         Level = 6
     
     retdata = Entrez.efetch(db="protein", id=ID, rettype='gb', retmode='text').read().split("\n")
@@ -56,6 +56,7 @@ def pullOrganism(ID, Level):
 # This cuts down on the number of querries sent to NCBI by not sending duplicate requests
 l_id = []
 for line in open(File):
+    print line
     dat = line.split('\t')[1]
     if "|" in dat:
         dat2 = dat.split('|')[1]
@@ -79,9 +80,9 @@ for ind in codes:
 for i in range(len(codes)):
 	l_id = [w.replace(codes[i], org_list[i]) for w in l_id]
 
-# Writes array to file
-for item in l_id:
-    Output.write("%s\n" % item)
+# # Writes array to file
+# for item in l_id:
+#     Output.write("%s\n" % item)
 
 
 

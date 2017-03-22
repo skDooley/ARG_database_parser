@@ -1,7 +1,7 @@
 import sys
 import os
 Input = sys.argv[1]
-the_path = sys.argv[2]
+working_files_path = sys.argv[2]
 Output = sys.argv[3]
 
 for line in open(Input):
@@ -19,18 +19,22 @@ for line in open(Input):
 		out = open('%s/Card/%s.blast'  %(Output, gene), 'a+')
 
     elif dat3.lower() == "megares":
-    	gene = dat.split('|')[-3]
-    	out = open('%s/%s.blast'  %(Output, gene), 'a+')
+    	class = dat.split('|')[-3]
+    	if len(dat2.split('_')) == 5:
+    		gene = dat2.split('_')[2]
+    	else:
+    		gene = dat2.split('_')[]
+    	out = open('%s/Megares/%s/%s.blast'  %(Output, class, gene), 'a+')
 
     out.write(line)
 
 cardlist = os.listdir('%s/Card' % Output)
 for file in cardlist:
 	code = file.split('.')[0]
-	if code.lower() in open('%s/Working_Files/AR_DB_Classes' % (the_path)).read().lower():
-		for AB_class in open('%s/Working_Files/Classes.list' %the_path):
+	if code.lower() in open('%s/Working_Files/AR_DB_Classes' % (working_files_path)).read().lower():
+		for AB_class in open('%s/Working_Files/Classes.list' %working_files_path):
 			AB_C = AB_class.split('\n')[0]
-			if code.lower() in open('%s/Working_Files/Keys/%s.list' %(the_path, AB_C)).read().lower():
+			if code.lower() in open('%s/Working_Files/Keys/%s.list' %(working_files_path, AB_C)).read().lower():
 				out = open('%s/%s.blast'  %(Output, AB_C), 'a+')
 				break
 	else:
