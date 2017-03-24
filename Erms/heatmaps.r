@@ -1,10 +1,10 @@
 Png <- function(..., width=8, height=8, res=300){
   png(..., width=width*res, height=height*res, res=res)
 }
-#library('ggplot2')
-#library('reshape')
-#library('gplots')
-#library('stringr')
+library('ggplot2')
+library('reshape')
+library('gplots')
+library('stringr')
 
 ## Read in result from Entrez for each taxonomical level and the reads from the reads-clusters script
 reads <- read.table("~/Box Sync/Moorman-primers (Adina Howe)/schuyler/Reads_w_Clusters.list.uniq", header=F)
