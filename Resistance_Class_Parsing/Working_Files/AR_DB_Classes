@@ -12,7 +12,7 @@ Lipopeptides    arn,lpx,MCR,pho,Pmr,ros
 Metronidazole   msb
 MLS     car,cfr,chr,clb,des,eat,Ere,erm,Erm,gim,lin,lmr,lnu,mac,mef,mel,mgt,mph,msr,myr,ole,qep,sal,srm,tlr,vat,vga,vgb,lsa
 Multi-drug_resistance	
-Mycobacterium   
+Mycobacterium_tuberculosis-specific_Drug   
 Phenicol        cat,cml,cmr,cmx,fex,flo,mds,pp
 Rifampin        arr,iri,Rbp,rifampin
 Streptothricin	sat,Str

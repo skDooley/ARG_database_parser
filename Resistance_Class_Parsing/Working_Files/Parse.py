@@ -4,6 +4,11 @@ Input = sys.argv[1]
 working_files_path = sys.argv[2]
 Output = sys.argv[3]
 
+# Input = "/Users/schuyler/SS/Soil_reads.fa"
+# working_files_path = "/Users/schuyler/Dropbox/Scripts/Resistance_Class_Parsing"
+# Output = "/Users/schuyler/SS/S1"
+
+
 for line in open(Input):
     dat = line.split('\t')[1]
     dat2 = dat.split('|')[-1]
@@ -19,12 +24,12 @@ for line in open(Input):
 		out = open('%s/Card/%s.blast'  %(Output, gene), 'a+')
 
     elif dat3.lower() == "megares":
-    	class = dat.split('|')[-3]
+    	classes = dat.split('|')[-3].lower()
     	if len(dat2.split('_')) == 5:
     		gene = dat2.split('_')[2]
     	else:
-    		gene = dat2.split('_')[]
-    	out = open('%s/Megares/%s/%s.blast'  %(Output, class, gene), 'a+')
+    		gene = dat2.split('_')[0]
+    	out = open('%s/Megares/%s/%s.blast'  %(Output, classes, gene), 'a+')
 
     out.write(line)
 

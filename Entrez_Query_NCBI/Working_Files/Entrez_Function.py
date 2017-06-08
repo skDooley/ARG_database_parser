@@ -1,13 +1,11 @@
-from Bio import Entrez
-Entrez.email = "sdsmith@iastate.edu"
-
 def unique(seq):
     seen = set()
     seen_add = seen.add
     return [x for x in seq if not (x in seen or seen_add(x))]
 
 def pullOrganism(ID, Level):
-    retdata = Entrez.efetch(db="protein", id=ID, rettype='gb', retmode='text').read().split("\n")    
+    from Bio import Entrez
+    retdata = Entrez.efetch(db="nucleotide", id=ID, rettype='gb', retmode='text').read().split("\n")    
     if Level.lower()[0] == "p":
         Level = 1
     elif Level.lower()[0] == "c":
@@ -16,7 +14,7 @@ def pullOrganism(ID, Level):
         Level = 3
     elif Level.lower()[0] == "f":
         Level = 4
-    elif Level.lower()[0] == "g":
+    elif Level.lower() == "genus":
         Level = 5
     elif Level.lower()[0:2] == "sp":
         Level = 6
@@ -24,6 +22,8 @@ def pullOrganism(ID, Level):
         Level = 7
     elif Level.lower()[0] == "a":
         Level = 8
+    elif Level.lower()[0:4] == "gene":
+        Level = 9
 
     flag1 = False
     flag2 = False
@@ -40,6 +40,13 @@ def pullOrganism(ID, Level):
                     return a + " " + b
             if "ORIGIN" in line:
                 return a
+            if "ORIGIN" in line:
+                return "NA"
+            else:
+                continue
+        if Level == 9:
+            if "gene=" in line:
+                return line.split('=')[1].replace('"', '')
             else:
                 continue
         if Level == 8:
@@ -81,7 +88,5 @@ def pullOrganism(ID, Level):
             if Level == 6 or Level == 5:
                 return line.split(" ")[Level-1]
             flag1 = True
-
-print pullOrganism("AAW54555", "all")
 
 

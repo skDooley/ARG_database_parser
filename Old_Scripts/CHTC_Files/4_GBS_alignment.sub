@@ -1,0 +1,22 @@
+universe = vanilla
+getenv = true
+
+executable = /home/sdsmith5/Files/4_GBS_alignment.sh
+
+log = Logs/$(Cluster).log
+error = Logs/$(Cluster).$(Process).err
+
++fileext = .fastq
+arguments = $(path) $(fileroot)$(fileext)
+
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+transfer_input_files = Programs/bwa.tar.gz, Programs/samtools.tar.gz, Programs/picard.tar.gz, Programs/bedtools.tar.gz, Files/source_file.sh
+
+request_cpus = 2
+request_memory = 6GB
+request_disk = 1GB
+
+Requirements = (Target.HasGluster == true)
+
+queue path, fileroot from /mnt/gluster/sdsmith5/keys/fastqs.list
