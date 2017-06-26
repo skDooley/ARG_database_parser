@@ -10,11 +10,13 @@ Output=${@:$#}
 if [ ! -d $Output/Card ]; then
 	mkdir -p $Output/Int
 	mkdir $Output/Card
-	mkdir $Output/Megares
+	mkdir -p $Output/Megares
 fi
 
 while read class; do
-	mkdir $Output/Megares/$class
+	if [ ! -d $Output/Megares/$class ]; then
+		mkdir $Output/Megares/$class
+	fi
 done < $the_path/Working_Files/Classes.list
 
 for file in $Input; do

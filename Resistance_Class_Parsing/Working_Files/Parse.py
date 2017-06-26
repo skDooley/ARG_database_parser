@@ -8,30 +8,33 @@ Output = sys.argv[3]
 # working_files_path = "/Users/schuyler/Dropbox/Scripts/Resistance_Class_Parsing"
 # Output = "/Users/schuyler/SS/S1"
 
-
 for line in open(Input):
-    dat = line.split('\t')[1]
+    line = line.rstrip().strip('\"')
+    try:
+        dat = line.split('\t')[1]
+    except:
+        dat = line.split('\t')[0]
     dat2 = dat.split('|')[-1]
     dat3 = dat2.split('_')[-1]
 
     if dat3.lower() == "int":
-    	gene = dat2.split('_int')[0]
+        gene = dat2.split('_int')[0]
         gene = gene.replace("/","_")
-    	out = open('%s/Int/%s.blast'  %(Output, gene), 'a+')
+        out = open('%s/Int/%s.blast'  %(Output, gene), 'a+')
 
     elif dat3.lower() == "card":
-		gene = dat2.split('_')[0][:3]
-		out = open('%s/Card/%s.blast'  %(Output, gene), 'a+')
+        gene = dat2.split('_')[0][:3]
+        out = open('%s/Card/%s.blast'  %(Output, gene), 'a+')
 
     elif dat3.lower() == "megares":
-    	classes = dat.split('|')[-3].lower()
-    	if len(dat2.split('_')) == 5:
-    		gene = dat2.split('_')[2]
-    	else:
-    		gene = dat2.split('_')[0]
-    	out = open('%s/Megares/%s/%s.blast'  %(Output, classes, gene), 'a+')
+        classes = dat.split('|')[-3].lower()
+        if len(dat2.split('_')) == 5:
+            gene = dat2.split('_')[2]
+        else:
+            gene = dat2.split('_')[0]
+        out = open('%s/Megares/%s/%s.blast'  %(Output, classes, gene), 'a+')
 
-    out.write(line)
+    out.write(line + '\n')
 
 cardlist = os.listdir('%s/Card' % Output)
 for file in cardlist:
