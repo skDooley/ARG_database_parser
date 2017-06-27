@@ -8,11 +8,15 @@ This script is setup to subdivide files based on database entries of ARMs locate
 
 To run the parsing script, Run_Parse.sh must be run as
 	sh Run_Parse.sh <input file(s)> <desired output name>
+	example:
+		sh Run_Parse.sh SS/*_input_files.blast SS_output
 	
 	any number of files can be inputted, easiest to input to a directory and use * to indicate all files present
-	the desired directory does not need to exist, it will be created if it does not exist.
-
-The input files should be in the format of ie
+	the output name should be a directory name the desired directory does not need to exist, it will be created if it does not exist.
+		the script will create files for each of the antibiotic resistance gene class and put each line of the input into each of those files they belong to.
+			additionally it will also create directories for each of the databases used and create files and subdirectories for those based on genes or ARG class (this might be less useful but is a linear Big-O step so I didn't bother to remove it).
+	
+The input files should be in the format below, with tab or space delimiters for each column:
 	<anything>	Rif|AP010904.1|gene3156|Rifampin|Rifampin-resistant_beta-subunit_of_RNA_polymerase_RpoB|RPOB_megares	...
 
 
