@@ -4,9 +4,9 @@ Input = sys.argv[1]
 working_files_path = sys.argv[2]
 Output = sys.argv[3]
 
-# Input = "/Users/schuyler/SS/test/input.txt"
+# Input = "/Users/schuyler/SS/test/test.out"
 # working_files_path = "/Users/schuyler/Dropbox/Scripts/Resistance_Class_Parsing"
-# Output = "/Users/schuyler/SS/test/out"
+# Output = "/Users/schuyler/SS/test/out.out"
 
 for line in open(Input):
     line = line.rstrip().strip('\"')
@@ -32,7 +32,12 @@ for line in open(Input):
             gene = dat2.split('_')[2]
         else:
             gene = dat2.split('_')[0]
-        out = open('%s/Megares/%s/%s.blast'  %(Output, classes, gene), 'a+')
+        for AB_class in open('%s/Working_Files/Classes.list' %working_files_path):
+            if classes.lower() in AB_class.lower():
+                AB_C = AB_class.split('\n')[0]
+        out = open('%s/Megares/%s/%s.blast'  %(Output, AB_C, gene), 'a+')
+        megout = open('%s/%s.blast' %(Output, AB_C), 'a+')
+        megout.write(line + '\n')
 
     out.write(line + '\n')
 
@@ -50,7 +55,7 @@ for file in cardlist:
 
 	for line in open('%s/Card/%s' % (Output,file)):
 		out.write(line)
-	os.remove('%s/Card/%s' % (Output,file))
+	# os.remove('%s/Card/%s' % (Output,file))
 
 
 

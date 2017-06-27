@@ -5,8 +5,6 @@ Input=${@:1:$length}
 Output=${@:$#}
 
  
-
-
 if [ ! -d $Output/Card ]; then
 	mkdir -p $Output/Int
 	mkdir $Output/Card
@@ -23,7 +21,7 @@ for file in $Input; do
 	python $the_path/Working_Files/Parse.py $file $the_path $Output
 done
 
-rm -r $Output/Card
+# rm -r $Output/Card
 
 
 # awk '{print $1, $NF}' FS=/ S1_S3_L003.Counts.list | awk '{print $1 "\t" $3}'
