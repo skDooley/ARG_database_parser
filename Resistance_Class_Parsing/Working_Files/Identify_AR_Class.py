@@ -1,12 +1,12 @@
 import sys
 import os
-# Input = sys.argv[1]
-# working_files_path = sys.argv[2]
-# Output = sys.argv[3]
+Input = sys.argv[1]
+working_files_path = sys.argv[2]
+Output = sys.argv[3]
 
-Input = "/Users/schuyler/SS/test/input.txt"
-working_files_path = "/Users/schuyler/Dropbox/Scripts/Resistance_Class_Parsing"
-Output = "/Users/schuyler/SS/test/out"
+# Input = "/Users/schuyler/SS/test/input.txt"
+# working_files_path = "/Users/schuyler/Dropbox/Scripts/Resistance_Class_Parsing"
+# Output = "/Users/schuyler/SS/test/out"
 
 out = open('%s/All.list'  %(Output), 'a+')
 
@@ -26,12 +26,10 @@ for line in open(Input):
     elif dat3.lower() == "card":
         gene = dat2.split('_')[0][:3]
         if gene.lower() in open('%s/Working_Files/AR_DB_Classes' % (working_files_path)).read().lower():
-            print gene
             for AB_class in open('%s/Working_Files/Classes.list' %working_files_path):
                 AB_C = AB_class.split('\n')[0]
                 if gene.lower() in open('%s/Working_Files/Keys/%s.list' %(working_files_path, AB_C)).read().lower():
                     gene = AB_C
-
         else:
             gene = "uncategorized"
 

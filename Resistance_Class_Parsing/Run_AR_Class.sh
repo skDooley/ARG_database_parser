@@ -23,5 +23,5 @@ for file in $Input; do
 	python $the_path/Working_Files/Identify_AR_Class.py $file $the_path $Output
 done
 
-rm -r $Output/Card
+
 
