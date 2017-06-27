@@ -4,16 +4,16 @@ Input = sys.argv[1]
 working_files_path = sys.argv[2]
 Output = sys.argv[3]
 
-# Input = "/Users/schuyler/SS/Soil_reads.fa"
+# Input = "/Users/schuyler/SS/test/input.txt"
 # working_files_path = "/Users/schuyler/Dropbox/Scripts/Resistance_Class_Parsing"
-# Output = "/Users/schuyler/SS/S1"
+# Output = "/Users/schuyler/SS/test/out"
 
 for line in open(Input):
     line = line.rstrip().strip('\"')
     try:
-        dat = line.split('\t')[1]
+        dat = line.split()[1]
     except:
-        dat = line.split('\t')[0]
+        dat = line.split()[0]
     dat2 = dat.split('|')[-1]
     dat3 = dat2.split('_')[-1]
 

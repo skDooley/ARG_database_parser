@@ -25,9 +25,5 @@ done
 
 rm -r $Output/Card
 
-wc -l $Output/*.blast | cut -f1 -d '.' | sed "s|$Output/||g" | sed '/total/d' > $Output/$Entry.Counts.list
-wc -l $Output/Int/*.blast | cut -f1 -d '.' | sed "s|$Output/Int/||g" | tail -n 1 | sed "s|total|Int|" >> $Output/$Entry.Counts.list
-wc -l $Output/Int/*.blast | cut -f1 -d '.' | sed "s|$Output/Int/||g" | sed '/total/d' > $Output/$Entry.Int_Count.list
-
 
 # awk '{print $1, $NF}' FS=/ S1_S3_L003.Counts.list | awk '{print $1 "\t" $3}'
