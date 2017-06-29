@@ -1,16 +1,23 @@
 import sys
 import os
-Input = sys.argv[1]
-working_files_path = sys.argv[2]
-Output = sys.argv[3]
+import multiprocessing as mp
 
-# Input = "/Users/schuyler/SS/test/input.txt"
-# working_files_path = "/Users/schuyler/Dropbox/Scripts/Resistance_Class_Parsing"
-# Output = "/Users/schuyler/SS/test/out"
+if mp.cpu_count <= 2:
+    cores = 1
+else:
+    cores = 1 + mp.cpu_count()//2
 
+# Input = sys.argv[1]
+# working_files_path = sys.argv[2]
+# Output = sys.argv[3]
+
+Input = "/Users/schuyler/SS/test/input.txt"
+working_files_path = "/Users/schuyler/Dropbox/Scripts/Resistance_Class_Parsing"
+Output = "/Users/schuyler/SS/test/out"
 out = open('%s/All.list'  %(Output), 'a+')
 
-for line in open(Input):
+def ARG_ID(line):
+
     line = line.rstrip().strip('\"')
     try:
         dat = line.split()[1]
@@ -32,9 +39,14 @@ for line in open(Input):
                     gene = AB_C
         else:
             gene = "uncategorized"
-
     elif dat3.lower() == "megares":
         gene = dat.split('|')[-3]
+    return(gene + '\t' + line + '\n')
 
-    out.write(gene + '\t' + line + '\n')
+pool = mp.Pool(processes=cores)
+results = pool.map(ARG_ID, open(Input))
+
+for line in results:
+        out.write(line)
+
 
