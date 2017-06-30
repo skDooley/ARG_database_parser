@@ -1,0 +1,23 @@
+Aminocoumarins  AAC,bae,mdt,nov
+Aminoglycosides aad,amr,ANT,APH,arm,Borrelia,mdf,npm,Pasteurella,Pvr,rmt,spd
+Bacitracin      bac,bcr
+betalactams     ACC,ACT,AER,AIM,AQU,BcI,BEL,BJP,BLA,CARB,CAU,Cbl,Ccr,cep,CFE,Cfx,CGB,CMY,cph,CPS,CTX,DHA,DIM,EBR,ESP,EXO,FEZ,FOX,GES,GOB,IMI,imi,IMP,IND,L1,KPC,LAT,LCR,LEN,LRA,mec,MIR,MOX,MSI,MUS,NDM,Nmc,NPS,OCH,OKP,OXA,PBP,PC1,PDC,PED,PER,r39,ROB,Sed,SFB,sfh,SHV,SIM,SLB,SMB,SME,spg,SPM,SRT,TEM,THI,TLA,TLE,TUS,VCC,VEB,VIM,y56,sme
+Cationicantimicrobialpeptides   
+Elfamycins      Clostridium,fac,Planobispora
+Fluoroquinolones        arl,blt,bmr,Campylobacter,Cme,emr,mfp,Mycoplasma,Neisseria,nor,Pseudomonas,qac,Qnr,mex
+Fosfomycin      Fom,Fos
+Fusidic_acid    fus
+Glycopeptides   bleomycin,van,Van
+Lipopeptides    arn,lpx,MCR,pho,Pmr,ros
+Metronidazole   msb
+MLS     car,cfr,chr,clb,des,eat,Ere,erm,Erm,gim,lin,lmr,lnu,mac,mef,mel,mgt,mph,msr,myr,ole,qep,sal,srm,tlr,vat,vga,vgb,lsa
+Multi-drug_resistance	
+Mycobacterium_tuberculosis-specific_Drug   
+Phenicol        cat,cml,cmr,cmx,fex,flo,mds,pp
+Rifampin        arr,iri,Rbp,rifampin
+Streptothricin	sat,Str
+Sulfonamides    sul
+Tetracyclines   ade,mep,mgr,otr,Propionibacterium,tap,tcr,tet,evg
+Thiostrepton    
+Trimethoprim    dfr
+Tunicamycin     tmr

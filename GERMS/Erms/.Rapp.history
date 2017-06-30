@@ -1,0 +1,23 @@
+library('ggplot2')#
+library('reshape')#
+library('gplots')#
+library('stringr')
+## Read in result from Entrez for each taxonomical level and the reads from the reads-clusters script#
+reads <- read.table("~/Box Sync/Moorman-primers (Adina Howe)/schuyler/Reads_w_Clusters.list.uniq", header=F)#
+phylum <- read.table("~/Box Sync/Moorman-primers (Adina Howe)/schuyler/Tax_Clusters/Phylum.list", header=F, fill=T, sep="	")#
+class <- read.table("~/Box Sync/Moorman-primers (Adina Howe)/schuyler/Tax_Clusters/Class.list", header=F, fill=T,sep="	")#
+order <- read.table("~/Box Sync/Moorman-primers (Adina Howe)/schuyler/Tax_Clusters/Order.list", header=F, fill=T,sep="	")#
+family <- read.table("~/Box Sync/Moorman-primers (Adina Howe)/schuyler/Tax_Clusters/Family.list", header=F, fill=T,sep="	")#
+genus <- read.table("~/Box Sync/Moorman-primers (Adina Howe)/schuyler/Tax_Clusters/Genus.list", header=F, fill=T,sep="	")#
+species <- read.table("~/Box Sync/Moorman-primers (Adina Howe)/schuyler/Tax_Clusters/Species.list", header=F, fill=T,sep="	")
+reads <- read.table("~/Box Sync/DARTE-QM Project/Moorman-primers (Adina Howe)/schuyler/Reads_w_Clusters.list.uniq", header=F)
+## Read in result from Entrez for each taxonomical level and the reads from the reads-clusters script#
+reads <- read.table("~/Box Sync/DARTE-QM Project/Moorman-primers (Adina Howe)/schuyler/Reads_w_Clusters.list.uniq", header=F)#
+phylum <- read.table("~/Box Sync/DARTE-QM Project/Moorman-primers (Adina Howe)/schuyler/Tax_Clusters/Phylum.list", header=F, fill=T, sep="	")#
+class <- read.table("~/Box Sync/DARTE-QM Project/Moorman-primers (Adina Howe)/schuyler/Tax_Clusters/Class.list", header=F, fill=T,sep="	")#
+order <- read.table("~/Box Sync/DARTE-QM Project/Moorman-primers (Adina Howe)/schuyler/Tax_Clusters/Order.list", header=F, fill=T,sep="	")#
+family <- read.table("~/Box Sync/DARTE-QM Project/Moorman-primers (Adina Howe)/schuyler/Tax_Clusters/Family.list", header=F, fill=T,sep="	")#
+genus <- read.table("~/Box Sync/DARTE-QM Project/Moorman-primers (Adina Howe)/schuyler/Tax_Clusters/Genus.list", header=F, fill=T,sep="	")#
+species <- read.table("~/Box Sync/DARTE-QM Project/Moorman-primers (Adina Howe)/schuyler/Tax_Clusters/Species.list", header=F, fill=T,sep="	")
+head(reads)\
+head(reads)
