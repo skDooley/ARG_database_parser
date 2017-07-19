@@ -7,16 +7,8 @@ Entrez.email = "sdsmith@iastate.edu"
 
 
 
-
-
-
-
-
-
-ind = "KY471311"
-Taxo = "strain"
-
-
+ind = "CP019443"
+Taxo = "source"
 
 
 

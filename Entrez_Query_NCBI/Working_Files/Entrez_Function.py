@@ -22,11 +22,15 @@ def pullOrganism(ID, Level):
         Level = 7
     elif Level.lower()[0] == "a":
         Level = 8
-    elif Level.lower()[0:4] == "gene":
+    elif Level.lower() == "source":
         Level = 9
 
     flag1 = False
     flag2 = False
+    source = "source_NA"
+    host = "host_NA"
+    country = "country_NA"
+    date = "date_NA"
     Tax = []
     for line in retdata:
         if Level == 7:
@@ -45,10 +49,19 @@ def pullOrganism(ID, Level):
             else:
                 continue
         if Level == 9:
-            if "gene=" in line:
-                return line.split('=')[1].replace('"', '')
+            if "/isolation_source" in line:
+                source = line.split('=')[1].replace('"', '')
+            if "/host=" in line:
+                host = line.split('=')[1].replace('"', '')
+            if "/country" in line:
+                country = line.split('=')[1].replace('"', '')
+            if "/collection_date" in line:
+                date = line.split('=')[1].replace('"', '')
+            if "/transl" in line:
+                return str('%s\t%s\t%s\t%s' %(host, source, country, date))
             else:
                 continue
+
         if Level == 8:
             if flag1 == True and "REFERENCE" not in line.split():
                 Tax.append(' '.join(line.split()))

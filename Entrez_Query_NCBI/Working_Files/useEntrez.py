@@ -17,7 +17,9 @@ Taxo = sys.argv[2]
 # Generate an array of the unique PubMed uniqIDs for the genes 
 # This cuts down on the number of querries sent to NCBI by not sending duplicate requests
 l_id = []
+orig = []
 for line in open(File):
+    orig.append(str(line))
     try:
         dat = line.split()[1]
     except:
@@ -58,8 +60,8 @@ for i in range(len(uniqIDs)):
 	l_id = [w.replace(str(uniqIDs[i]), str(org_list[i])) for w in l_id]
 
 # Writes array to file
-for each in l_id:
-    Output.write("%s\n" % each)
+for each, line in zip(l_id, orig):
+    Output.write("%s\t%s\n" % (each, line))
     # print ("%s\n" % each)
 
 
