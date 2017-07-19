@@ -13,8 +13,8 @@ Entrez.email = "sdsmith@iastate.edu"
 
 
 
-ind = "U00096"
-Taxo = "p"
+ind = "KY471311"
+Taxo = "strain"
 
 
 

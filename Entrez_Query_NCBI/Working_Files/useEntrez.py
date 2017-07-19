@@ -18,7 +18,10 @@ Taxo = sys.argv[2]
 # This cuts down on the number of querries sent to NCBI by not sending duplicate requests
 l_id = []
 for line in open(File):
-    dat = line.split('\t')[1]
+    try:
+        dat = line.split()[1]
+    except:
+        dat = line.split()[0]
     if "unknown_id" in dat:
     	dat = "unknown_id"
     if "|" in dat:
