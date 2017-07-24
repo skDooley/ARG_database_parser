@@ -1,6 +1,7 @@
 # Resistance Class Parsing
 
 This pipeline was written to split BLAST outputs: 
+
 ```
 <read_name>	Rif|AP010904.1|gene3156|Rifampin|Rifampin-resistant_beta-subunit_of_RNA_polymerase_RpoB|RPOB_megares	...
 ```
@@ -18,6 +19,7 @@ Any number of input files may be given, as long as the desired ouput directory i
 
 ### Input File
 The pipeline was designed to handle BLAST outputs in the format shown above, however it will also accept an input file that has only the information in the second column.
+
 ```
 Rif|AP010904.1|gene3156|Rifampin|Rifampin-resistant_beta-subunit_of_RNA_polymerase_RpoB|RPOB_megares
 ```
@@ -35,7 +37,7 @@ Additionally, it will also create directories for each of the databases used (Me
 This script will take a file with the same input as the pipeline above.
 It will return a file that has the exact same thing as the input, but with a new column at the beginning that has the AR Class.
 
-```sh sh Resistance_Class_Parsing/Run_AR_Class.sh <input_file(s)> <desired_output_file_name>```
+```sh Resistance_Class_Parsing/Run_AR_Class.sh <input_file(s)> <desired_output_file_name>```
 
 ## Run_Uniq.sh
 
