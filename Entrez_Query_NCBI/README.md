@@ -24,11 +24,13 @@ AP010904.1
 ## Run_Entrez.sh
 
 To run from the terminal, use the command.  
+
 `
 	sh Entrez_Query_NCBI/Run_Entrez.sh <input_file(s)> <taxonomic_level> <output.file>
 `
 
 The python scripts used in the pipeline requires both [NumPy][NP] and [BioPython][BP] to run. If you do not have either of these I would recommend looking to [Anaconda][ANA], which includes these and many other useful python packages.
+
 [BP]:http://biopython.org/wiki/Download
 [NP]:https://www.scipy.org/scipylib/download.html
 [ANA]:https://www.continuum.io/downloads
