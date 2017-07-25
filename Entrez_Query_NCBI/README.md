@@ -4,7 +4,7 @@ The Entrez function is used to pull queries from the NCBI database.
 
 
 ## Input File(s)
-Input file(s) should be in the form  
+Input file(s) should be in the BLAST output form  
 
 ```
 <read>	Rif|AP010904.1|gene3156|Rifampin|Rifampin-resistant_beta-subunit_of_RNA_polymerase_RpoB|RPOB_megares	...
