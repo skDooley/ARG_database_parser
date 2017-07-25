@@ -12,12 +12,12 @@ This is the main script for this pipeline.
 The pipeline is executed with command line:
 
 ```
-sh Resistance_Class_Parsing/Run_Parse.sh <directory_to/*_input_files.blast> <directory_to/_output>
+sh Resistance_Class_Parsing/Run_Parse.sh <path_to/*_input_files.blast> <path_to/output_directory>
 ```
 
 Any number of input files may be given, as long as the desired ouput directory is given last.
 
-### Input File
+### Input File(s)
 The pipeline was designed to handle BLAST outputs in the format shown above, however it will also accept an input file that has only the information in the second column.
 
 ```
@@ -25,10 +25,10 @@ Rif|AP010904.1|gene3156|Rifampin|Rifampin-resistant_beta-subunit_of_RNA_polymera
 ```
 
 ### Output
-The given output path and directory will be created if it does not exist.
+The given output path and directory will be created if it does not exist.  
 (**Warning:** this means that if you put a long path for the output and make a mistake in a subdirectory name, it WILL create a bunch of new directories without giving an error, so double-check your paths!)
 
-Within the output, the script will create a file for each antibiotic resistance gene class present in the input, and write each read to its corresponding class file.
+Within the output, the script will create a file for each antibiotic resistance gene class present in the input, and write each BLAST read to its corresponding class file.
 
 Additionally, it will also create directories for each of the databases used (MegaRes, Card, Int) and create files and subdirectories for those based on genes or ARG-class (this may or may not be useful, but is easy enough to ignore).
 
@@ -55,6 +55,7 @@ You may find that some reads are not sorted into any class, or a class that you 
 The file in `Resistance_Class_Parsing/Working_Files/AR_DB_Classes` contains the ARG-classes and their corresponding gene codes. If this is altered you will then want to run the file `Resistance_Class_Parsing/Working_Files/Make_Keys.sh` probably within that directory as
 
 ```
+cd Resistance_Class_Parsing/Working_Files
 sh Make_Keys.sh
 ```
 
