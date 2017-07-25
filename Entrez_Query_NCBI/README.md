@@ -6,28 +6,29 @@ The Entrez function is used to pull queries from the NCBI database.
 ## Input File(s)
 Input file(s) should be in the form  
 
-`<read>	Rif|AP010904.1|gene3156|Rifampin|Rifampin-resistant_beta-subunit_of_RNA_polymerase_RpoB|RPOB_megares	...
-`
+```
+<read>	Rif|AP010904.1|gene3156|Rifampin|Rifampin-resistant_beta-subunit_of_RNA_polymerase_RpoB|RPOB_megares	...
+```
 
 or 
 
-`
+```
 Rif|AP010904.1|gene3156|Rifampin|Rifampin-resistant_beta-subunit_of_RNA_polymerase_RpoB|RPOB_megares
-`
+```
 
 or just the accession IDs. 
 
-`
+```
 AP010904.1
-`
+```
 
 ## Run_Entrez.sh
 
 To run from the terminal, use the command.  
 
-`
-	sh Entrez_Query_NCBI/Run_Entrez.sh <input_file(s)> <taxonomic_level> <output.file>
-`
+```
+sh Entrez_Query_NCBI/Run_Entrez.sh <input_file(s)> <taxonomic_level> <output.file>
+```
 
 The python scripts used in the pipeline requires both [NumPy][NP] and [BioPython][BP] to run. If you do not have either of these I would recommend looking to [Anaconda][ANA], which includes these and many other useful python packages.
 
